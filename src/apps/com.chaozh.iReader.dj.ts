@@ -107,6 +107,23 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 3,
+      name: '更新提示',
+      desc: '点击关闭',
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.zhangyue.iReader.bookshelf.ui.ActivityBookShelf',
+          matches:
+            '[text="立即升级"][clickable=true][visibleToUser=true] -4 [vid="dialog_public_top_bar_title_close"]',
+          snapshotUrls: 'https://i.gkd.li/i/25121594',
+        },
+      ],
+    },
 
     // 存在无法解决的误触问题
     // {
