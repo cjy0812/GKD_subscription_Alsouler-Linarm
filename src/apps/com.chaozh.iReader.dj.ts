@@ -74,6 +74,39 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 2,
+      name: '全屏广告',
+      desc: '不划掉就无法进行其他操作的广告弹窗, 本质上它属于阻碍用户看书',
+      actionCd: 8000, //加cd等加载过去防止循环触发,如p2
+      rules: [
+        {
+          key: 0,
+          fastQuery: true,
+          activityIds: 'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
+          matches:
+            '[text="广告"][visibleToUser=true] <<n [id="com.zhangyue.module.ad:id/mix_ad_view"] <<n LinearLayout[childCount=4] > TextView + FrameLayout',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25118364',
+            'https://i.gkd.li/i/25118320', //p2
+          ],
+        },
+        {
+          key: 1,
+          activityIds: 'com.qq.e.ads.PortraitADActivity',
+          matches: '[text=""][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25118663',
+        },
+        {
+          key: 2,
+          fastQuery: true,
+          activityIds:
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          matches: '[text="关闭"][visibleToUser=true]',
+          snapshotUrls: 'https://i.gkd.li/i/25118774',
+        },
+      ],
+    },
 
     // 存在无法解决的误触问题
     // {
