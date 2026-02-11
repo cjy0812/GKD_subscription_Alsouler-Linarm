@@ -9,7 +9,7 @@ export default defineGkdApp({
       name: '局部广告',
       rules: [
         {
-          key: 1,
+          key: 0,
           fastQuery: true,
           activityIds: [
             'com.qq.e.ads.PortraitADActivity',
@@ -20,25 +20,25 @@ export default defineGkdApp({
             '[text$="了解更多"] <<n [id="android:id/content"] + [text="关闭"][clickable=true][visibleToUser=true]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/24879639',
+            'https://i.gkd.li/i/24879639', //底部卡片广告
             'https://i.gkd.li/i/24879692',
             'https://i.gkd.li/i/24879766',
-            'https://i.gkd.li/i/24909685',
+            'https://i.gkd.li/i/24909685', //小说中途插入广告
           ],
         },
         {
-          key: 2,
+          key: 1,
           fastQuery: true,
           activityIds: 'com.zhangyue.iReader.bookshelf.ui.ActivityBookShelf',
           matches:
             '@ImageView[clickable=true][childCount=0][width<50 && height<50] < FrameLayout <2 [id="android:id/content"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/24880989',
+            'https://i.gkd.li/i/24880989', //首页小红包
             'https://i.gkd.li/i/24881759',
           ],
         },
         {
-          key: 3,
+          key: 2,
           fastQuery: true,
           activityIds: [
             'com.zhangyue.iReader.ui.activity.ActivityContainer',
@@ -48,13 +48,13 @@ export default defineGkdApp({
           matches:
             '@[text="关闭"][clickable=true] <<n [id="com.zhangyue.module.ad:id/mix_ad_view" || id="com.zhangyue.module.ad:id/ad_splash_ad_layout"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/24884414',
+            'https://i.gkd.li/i/24884414', //听书播放器底部广告
             'https://i.gkd.li/i/24882622',
-            'https://i.gkd.li/i/24883183',
+            'https://i.gkd.li/i/24883183', //京东广告_小说中途插入
           ],
         },
         {
-          key: 5,
+          key: 3,
           fastQuery: true,
           activityIds: [
             'com.zhangyue.app.shortplay.player.ui.activity.EpisodesSetPlayActivity',
@@ -63,8 +63,8 @@ export default defineGkdApp({
           matches:
             '[id="com.zhangyue.module.ad:id/close_ad" || id="com.zhangyue.module.ad:id/ad_close_2"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/24885716',
-            'https://i.gkd.li/i/24888022',
+            'https://i.gkd.li/i/24885716', //短剧底部卡片广告
+            'https://i.gkd.li/i/24888022', //章节尾部插入横幅广告
           ],
         },
       ],
@@ -89,10 +89,10 @@ export default defineGkdApp({
             '[text="关闭"][visibleToUser=true]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/25118364',
+            'https://i.gkd.li/i/25118364', //各种小说中途插入广告
             'https://i.gkd.li/i/25118663',
             'https://i.gkd.li/i/25118774',
-            'https://i.gkd.li/i/25118320', //p2
+            'https://i.gkd.li/i/25118320', //循环误触-画面与结构树不匹配，估计得多翻2页才刷新
           ],
         },
       ],
@@ -111,6 +111,26 @@ export default defineGkdApp({
           matches:
             '[text="立即升级"][clickable=true][visibleToUser=true] -4 [vid="dialog_public_top_bar_title_close"]',
           snapshotUrls: 'https://i.gkd.li/i/25121594',
+        },
+      ],
+    },
+    {
+      key: 4,
+      name: '分段广告',
+      rules: [
+        {
+          key: 0,
+          activityIds: 'com.zhangyue.iReader.online.ui.ActivityFee',
+          matches:
+            '@Image[text.length=36][visibleToUser=true] + [text="纯净阅读免广告"]',
+          snapshotUrls: 'https://i.gkd.li/i/25243163', //要米第一步
+        },
+        {
+          key: 1,
+          preKeys: [0],
+          activityIds: 'com.zhangyue.iReader.online.ui.ActivityFee',
+          matches: '@TextView + [text="别走！送你限时优惠"]',
+          snapshotUrls: 'https://i.gkd.li/i/25243375', //球球给点米好不好嘛~
         },
       ],
     },
