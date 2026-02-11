@@ -18,12 +18,14 @@ export default defineGkdApp({
           matches: [
             '@[id*="ad_close"] - LinearLayout >(5,6) [text="广告"][visibleToUser=true]',
             '[text$="了解更多"] <<n [id="android:id/content"] + [text="关闭"][clickable=true][visibleToUser=true]',
+            '[vid="tv_exit"][clickable=true][visibleToUser=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/24879639', //底部卡片广告
             'https://i.gkd.li/i/24879692',
             'https://i.gkd.li/i/24879766',
             'https://i.gkd.li/i/24909685', //小说中途插入广告
+            'https://i.gkd.li/i/25244345', //加入书架二次提示-直接退出
           ],
         },
         {
