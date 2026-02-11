@@ -15,12 +15,15 @@ export default defineGkdApp({
             'com.qq.e.ads.PortraitADActivity',
             'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
           ],
-          matches:
+          matches: [
             '@[id*="ad_close"] - LinearLayout >(5,6) [text="广告"][visibleToUser=true]',
+            '[text$="了解更多"] <<n [id="android:id/content"] + [text="关闭"][clickable=true][visibleToUser=true]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/24879639',
             'https://i.gkd.li/i/24879692',
             'https://i.gkd.li/i/24879766',
+            'https://i.gkd.li/i/24909685',
           ],
         },
         {
@@ -51,14 +54,6 @@ export default defineGkdApp({
           ],
         },
         {
-          key: 4,
-          fastQuery: true,
-          activityIds: 'com.qq.e.ads.PortraitADActivity',
-          matches:
-            '[text$="了解更多"] <<n [id="android:id/content"] + [text="关闭"][clickable=true][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/24909685',
-        },
-        {
           key: 5,
           fastQuery: true,
           activityIds: [
@@ -77,33 +72,28 @@ export default defineGkdApp({
     {
       key: 2,
       name: '全屏广告',
-      desc: '不划掉就无法进行其他操作的广告弹窗, 本质上它属于阻碍用户看书',
+      desc: '通过点击空白地方实现跳过广告非关闭策略',
       actionCd: 8000, //加cd等加载过去防止循环触发,如p2
       rules: [
         {
           key: 0,
           fastQuery: true,
-          activityIds: 'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
-          matches:
+          activityIds: [
+            'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
+            'com.qq.e.ads.PortraitADActivity',
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          ],
+          matches: [
             '[text="广告"][visibleToUser=true] <<n [id="com.zhangyue.module.ad:id/mix_ad_view"] <<n LinearLayout[childCount=4] > TextView + FrameLayout',
+            '[text=""][visibleToUser=true]',
+            '[text="关闭"][visibleToUser=true]',
+          ],
           snapshotUrls: [
             'https://i.gkd.li/i/25118364',
+            'https://i.gkd.li/i/25118663',
+            'https://i.gkd.li/i/25118774',
             'https://i.gkd.li/i/25118320', //p2
           ],
-        },
-        {
-          key: 1,
-          activityIds: 'com.qq.e.ads.PortraitADActivity',
-          matches: '[text=""][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/25118663',
-        },
-        {
-          key: 2,
-          fastQuery: true,
-          activityIds:
-            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
-          matches: '[text="关闭"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/25118774',
         },
       ],
     },
