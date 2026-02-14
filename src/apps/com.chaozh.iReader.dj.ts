@@ -7,10 +7,10 @@ export default defineGkdApp({
     {
       key: 1,
       name: '局部广告',
+      fastQuery: true,
       rules: [
         {
           key: 0,
-          fastQuery: true,
           activityIds: [
             'com.qq.e.ads.PortraitADActivity',
             'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
@@ -25,7 +25,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          fastQuery: true,
           activityIds: 'com.zhangyue.iReader.bookshelf.ui.ActivityBookShelf',
           matches:
             '@ImageView[clickable=true][childCount=0][width<50 && height<50] < FrameLayout <2 [id="android:id/content"]',
@@ -36,7 +35,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          fastQuery: true,
           activityIds: [
             'com.zhangyue.iReader.ui.activity.ActivityContainer',
             'com.zhangyue.iReader.bookshelf.ui.ActivityBookShelf',
@@ -52,7 +50,6 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          fastQuery: true,
           activityIds: [
             'com.zhangyue.app.shortplay.player.ui.activity.EpisodesSetPlayActivity',
             'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
@@ -70,11 +67,11 @@ export default defineGkdApp({
       key: 2,
       name: '全屏广告-小说内自动划走广告', //通过各种办法触发划走而非点击关闭
       desc: '通过点击空白地方实现跳过广告非关闭策略',
+      fastQuery: true,
       actionCd: 8000, //加cd等加载过去防止循环触发,如p2
       rules: [
         {
           key: 0,
-          fastQuery: true,
           activityIds: 'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
           matches:
             '@FrameLayout - [text$="赞助作者" || text$="正版内容" || text$="奖励" || text$="耕耘"] <<n [vid="bookview"]',
@@ -87,7 +84,6 @@ export default defineGkdApp({
         },
         {
           key: 1,
-          fastQuery: true,
           activityIds: 'com.qq.e.ads.PortraitADActivity',
           matches: [
             '[text=""][visibleToUser=true][index=parent.childCount.minus(1)]',
@@ -100,7 +96,6 @@ export default defineGkdApp({
         },
         {
           key: 2,
-          fastQuery: true,
           activityIds:
             'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
           matches:
