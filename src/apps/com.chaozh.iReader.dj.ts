@@ -15,17 +15,12 @@ export default defineGkdApp({
             'com.qq.e.ads.PortraitADActivity',
             'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
           ],
-          matches: [
+          matches:
             '@[id*="ad_close"] - LinearLayout >(5,6) [text="广告"][visibleToUser=true]',
-            '[text$="了解更多"] <<n [id="android:id/content"] + [text="关闭"][clickable=true][visibleToUser=true]',
-            '[vid="tv_exit"][clickable=true][visibleToUser=true]',
-          ],
           snapshotUrls: [
             'https://i.gkd.li/i/24879639', //底部卡片广告
             'https://i.gkd.li/i/24879692',
             'https://i.gkd.li/i/24879766',
-            'https://i.gkd.li/i/24909685', //小说中途插入广告
-            'https://i.gkd.li/i/25244345', //加入书架二次提示-直接退出
           ],
         },
         {
@@ -87,7 +82,6 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25118364',
             'https://i.gkd.li/i/25307532',
             'https://i.gkd.li/i/24882824',
-            'https://i.gkd.li/i/24882944',
             'https://i.gkd.li/i/25118320', //p2_循环误触-画面与结构树不匹配，估计得多翻2页才刷新
           ],
         },
@@ -95,9 +89,14 @@ export default defineGkdApp({
           key: 1,
           fastQuery: true,
           activityIds: 'com.qq.e.ads.PortraitADActivity',
-          matches:
+          matches: [
             '[text=""][visibleToUser=true][index=parent.childCount.minus(1)]',
-          snapshotUrls: 'https://i.gkd.li/i/25118663',
+            '[text="关闭"][clickable=true][visibleToUser=true] - [id="android:id/content"] < FrameLayout +2 FrameLayout[index=parent.childCount.minus(1)]', //兜底规则
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/25118663',
+            'https://i.gkd.li/i/24909685',
+          ],
         },
         {
           key: 2,
@@ -149,6 +148,20 @@ export default defineGkdApp({
           activityIds: 'com.zhangyue.iReader.online.ui.ActivityFee',
           matches: '@TextView + [text="别走！送你限时优惠"]',
           snapshotUrls: 'https://i.gkd.li/i/25243375', //球球给点米好不好嘛~
+        },
+      ],
+    },
+    {
+      key: 5,
+      name: '功能类-退出阅读跳过加书架提示',
+      desc: '小说退出-加入书架提示-退出阅读',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: 'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
+          matches:
+            '[vid="tv_add_book_self"] + [text="退出阅读"][clickable=true][visibleToUser=true][index=parent.childCount.minus(1)]',
+          snapshotUrls: 'https://i.gkd.li/i/25244345',
         },
       ],
     },
