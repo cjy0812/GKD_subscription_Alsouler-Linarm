@@ -68,13 +68,14 @@ export default defineGkdApp({
       name: '全屏广告-小说内自动划走广告', //通过各种办法触发划走而非点击关闭
       desc: '通过点击空白地方实现跳过广告非关闭策略',
       fastQuery: true,
+      actionDelay: 12000, //p2,p3 issue
       actionCd: 8000, //加cd等加载过去防止循环触发,如p2
       rules: [
         {
           key: 0,
           activityIds: 'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
           matches:
-            '@FrameLayout - [text$="赞助作者" || text$="正版内容" || text$="奖励" || text$="耕耘"] <<n [vid="bookview"]',
+            '@FrameLayout - [text^="广告" || text$="赞助作者" || text$="正版内容" || text$="奖励" || text$="耕耘"] <<10 [vid="bookview"]',
           snapshotUrls: [
             'https://i.gkd.li/i/25118364',
             'https://i.gkd.li/i/25307532',
@@ -101,7 +102,7 @@ export default defineGkdApp({
           matches:
             '[text="关闭"][clickable=true][visibleToUser=true] - [id="android:id/content"] < FrameLayout +2 FrameLayout[index=parent.childCount.minus(1)]',
           snapshotUrls: [
-            'https://i.gkd.li/i/25314831', //广告预加载准备
+            'https://i.gkd.li/i/25314831', //p3_广告预加载准备，预示着下一页就是AD
             'https://i.gkd.li/i/25314833', //广告现行
             'https://i.gkd.li/i/25118774',
           ],
