@@ -73,28 +73,43 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '全屏广告',
+      name: '全屏广告-小说内自动划走广告', //通过各种办法触发划走而非点击关闭
       desc: '通过点击空白地方实现跳过广告非关闭策略',
       actionCd: 8000, //加cd等加载过去防止循环触发,如p2
       rules: [
         {
           key: 0,
           fastQuery: true,
-          activityIds: [
-            'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
-            'com.qq.e.ads.PortraitADActivity',
-            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
-          ],
-          matches: [
-            '[text="广告"][visibleToUser=true] <<n [id="com.zhangyue.module.ad:id/mix_ad_view"] <<n LinearLayout[childCount=4] > TextView + FrameLayout',
-            '[text=""][visibleToUser=true]',
-            '[text="关闭"][visibleToUser=true]',
-          ],
+          activityIds: 'com.zhangyue.iReader.read.ui.Activity_BookBrowser_TXT',
+          matches:
+            '@FrameLayout - [text$="赞助作者" || text$="正版内容" || text$="奖励" || text$="耕耘"] <<n [vid="bookview"]',
           snapshotUrls: [
-            'https://i.gkd.li/i/25118364', //各种小说中途插入广告
-            'https://i.gkd.li/i/25118663',
+            'https://i.gkd.li/i/25118364',
+            'https://i.gkd.li/i/25307532',
+            'https://i.gkd.li/i/24882824',
+            'https://i.gkd.li/i/24882944',
+            'https://i.gkd.li/i/25118320', //p2_循环误触-画面与结构树不匹配，估计得多翻2页才刷新
+          ],
+        },
+        {
+          key: 1,
+          fastQuery: true,
+          activityIds: 'com.qq.e.ads.PortraitADActivity',
+          matches:
+            '[text=""][visibleToUser=true][index=parent.childCount.minus(1)]',
+          snapshotUrls: 'https://i.gkd.li/i/25118663',
+        },
+        {
+          key: 2,
+          fastQuery: true,
+          activityIds:
+            'com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity',
+          matches:
+            '[text="关闭"][clickable=true][visibleToUser=true] - [id="android:id/content"] < FrameLayout +2 FrameLayout[index=parent.childCount.minus(1)]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25314831', //广告预加载准备
+            'https://i.gkd.li/i/25314833', //广告现行
             'https://i.gkd.li/i/25118774',
-            'https://i.gkd.li/i/25118320', //循环误触-画面与结构树不匹配，估计得多翻2页才刷新
           ],
         },
       ],
@@ -118,7 +133,8 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '分段广告',
+      name: '分段广告-要米组合',
+      desc: '关闭广告&假广告引发的被动技能反制',
       rules: [
         {
           key: 0,
@@ -128,8 +144,8 @@ export default defineGkdApp({
           snapshotUrls: 'https://i.gkd.li/i/25243163', //要米第一步
         },
         {
-          key: 1,
           preKeys: [0],
+          actionCd: 300,
           activityIds: 'com.zhangyue.iReader.online.ui.ActivityFee',
           matches: '@TextView + [text="别走！送你限时优惠"]',
           snapshotUrls: 'https://i.gkd.li/i/25243375', //球球给点米好不好嘛~
