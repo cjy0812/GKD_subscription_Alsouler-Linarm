@@ -10,7 +10,8 @@ export default defineGkdApp({
       fastQuery: true,
       rules: [
         {
-          matches: 'FrameLayout > LinearLayout > RelativeLayout > ImageView[clickable=true]',
+          matches:
+            'FrameLayout > LinearLayout > RelativeLayout > ImageView[clickable=true]',
           snapshotUrls: 'https://i.gkd.li/i/99210',
         },
       ],
