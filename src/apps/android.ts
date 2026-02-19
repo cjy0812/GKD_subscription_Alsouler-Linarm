@@ -17,8 +17,9 @@ export default defineGkdApp({
             '[vid="aerr_close"][text="确定" || text="关闭应用"][clickable=true]',
           ],
           snapshotUrls: [
-            'https://i.gkd.li/i/24468450',
+            'https://i.gkd.li/i/24468450', //test
             'https://i.gkd.li/i/24992555',
+            'https://i.gkd.li/i/24992565',
           ],
           exampleUrls: 'https://e.gkd.li/c87754c4-6fe1-4567-97c3-c74c8db3d561',
         },
