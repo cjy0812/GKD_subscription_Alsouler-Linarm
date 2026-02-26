@@ -726,7 +726,7 @@ export default defineGkdApp({
           activityIds: 'tv.danmaku.bili.ui.webview.MWebActivity',
           matches:
             '@Image[text^="yellow-tip-close"][visibleToUser=true] - View[childCount=1] - Image < View[childCount=3] <<n [vid="webview"]',
-          snapshotUrls: 'https://li.chenge.eu.org/i/25563755',
+          snapshotUrls: 'https://i.gkd.li/i/25563755',
         },
       ],
     },
