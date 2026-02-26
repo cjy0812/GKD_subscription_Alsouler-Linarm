@@ -127,6 +127,14 @@ export default defineGkdApp({
           matches: '[desc="关闭按钮"]',
           snapshotUrls: 'https://i.gkd.li/i/23383792',
         },
+        {
+          key: 11,
+          fastQuery: true,
+          activityIds: 'com.xunmeng.pinduoduo.ui.activity.HomeActivity',
+          matches:
+            '@ViewGroup[width<86 && height<86][clickable=true][focusable=true][clickable=true] + ViewGroup [text="元"]',
+          snapshotUrls: 'https://i.gkd.li/i/25572172',
+        },
       ],
     },
     {
