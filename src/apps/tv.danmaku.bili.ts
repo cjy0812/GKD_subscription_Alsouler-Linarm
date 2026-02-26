@@ -137,12 +137,13 @@ export default defineGkdApp({
         {
           key: 0,
           matches:
-            '[id="tv.danmaku.bili:id/shopping_close" || vid="live_game_card_close" || vid="match_close" || vid="iv_pop_rank_guide_card_close"][visibleToUser=true]',
+            '[id="tv.danmaku.bili:id/shopping_close"||vid="match_close"||vid$="card_close"][visibleToUser=true]', // 使用结尾匹配合并card_close
           snapshotUrls: [
             'https://i.gkd.li/i/13200549',
             'https://i.gkd.li/i/22990081',
             'https://i.gkd.li/i/23098023',
             'https://i.gkd.li/i/25238734',
+            'https://i.gkd.li/i/25569011',
           ],
         },
         {
