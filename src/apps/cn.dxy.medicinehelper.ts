@@ -68,11 +68,12 @@ export default defineGkdApp({
     {
       key: 3,
       name: '功能类-自动展开详细信息',
-      desc: '药品说明书点击[展开]',
+      desc: '药品说明书/处方信息-点击[展开]',
       activityIds: [
         '.article.dailylearn.DailyLearnComposeActivity',
         'cn.dxy.drugscomm.business.ebm.EbmContentComposeActivity',
         'cn.dxy.drugscomm.business.drug.detail.DrugDetailComposeActivity',
+        'cn.dxy.drugscomm.web.WebActivity',
       ],
       rules: [
         {
@@ -82,11 +83,22 @@ export default defineGkdApp({
             'https://i.gkd.li/i/25246982', //展开完整信息
             'https://i.gkd.li/i/25247525',
           ],
+          exampleUrls: [
+            'https://e.gkd.li/a10c00f2-b467-4489-96a9-56d477d5f982', // 说明书展开
+            'https://e.gkd.li/39e0cadc-198b-41e4-9dab-a7862d85cf23', // 指南展开
+          ],
         },
         {
           key: 1,
-          matches: '[text="展开"][visibleToUser=true]',
-          snapshotUrls: 'https://i.gkd.li/i/25247361',
+          matches: '[text="展开" || text="展开全部"][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25247361',
+            'https://i.gkd.li/i/25604253', // 临床决策处方点评
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/35e39eb1-960d-4108-b688-1248856107e7', // 点击前
+            'https://e.gkd.li/39e0cadc-198b-41e4-9dab-a7862d85cf23', // 点击后
+          ],
         },
       ],
     },
