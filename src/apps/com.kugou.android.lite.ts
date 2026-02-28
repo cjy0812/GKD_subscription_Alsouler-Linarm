@@ -136,6 +136,15 @@ export default defineGkdApp({
           exampleUrls: 'https://e.gkd.li/0776da1e-3ff6-4fba-a7e9-de8fa1fe5344',
           snapshotUrls: 'https://i.gkd.li/i/23619626',
         },
+        {
+          key: 2,
+          fastQuery: true,
+          activityIds: 'com.kugou.android.app.MediaActivity',
+          matches:
+            '@[clickable=true][visibleToUser=true] - FrameLayout <<2 [id="android:id/content"]',
+          snapshotUrls: 'https://i.gkd.li/i/25640086',
+          exampleUrls: 'https://e.gkd.li/1a5e5107-8e05-4031-873c-d3feed467cd7',
+        },
       ],
     },
     {
