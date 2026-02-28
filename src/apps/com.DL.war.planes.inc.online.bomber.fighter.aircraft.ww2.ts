@@ -12,9 +12,14 @@ export default defineGkdApp({
           key: 0,
           fastQuery: true,
           activityIds: 'com.yandex.mobile.ads.common.AdActivity',
-          matches:
+          anyMatches: [
             '@ImageView[index=parent.childCount.minus(1)][clickable=true][visibleToUser=true] < ViewGroup <3 ViewGroup <2 ViewGroup +5 [text="Learn more"]',
-          snapshotUrls: 'https://i.gkd.li/i/25241260',
+            '@ImageView[clickable=true][visibleToUser=true] <<n ViewGroup - * >n [text^="AD"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/25241260',
+            'https://i.gkd.li/i/25241244',
+          ],
         },
         {
           key: 1,
