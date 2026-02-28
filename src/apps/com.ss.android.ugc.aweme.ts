@@ -471,6 +471,30 @@ export default defineGkdApp({
           matches: '@[clickable=true] > [text^="展开"][text$="回复"]',
           snapshotUrls: 'https://i.gkd.li/i/25356027',
           excludeSnapshotUrls: 'https://i.gkd.li/i/25356355', // 排除 [展开更多]
+          exampleUrls: [
+            'https://e.gkd.li/e9ca5fe1-a60c-4ed8-9974-9d79e32c71d7',
+            'https://e.gkd.li/c58e3455-2d7e-4ce2-8c0f-a971386f5ef4', // 排除 [展开更多]
+          ],
+        },
+      ],
+    },
+    {
+      key: 30,
+      name: '功能类-自动展开评论_全部',
+      desc: '基于上面追加点击展开更多',
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: ['.detail.ui.DetailActivity', '.main.MainActivity'],
+          matches: '@[clickable=true] > [text^="展开更多"]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25619324',
+            'https://i.gkd.li/i/25619463',
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/c9f1e163-4fa9-42bb-b5a5-4c9de6f286c2',
+            'https://e.gkd.li/afea1f82-e50c-4ef0-9f0a-a2ceec00c03b',
+          ],
         },
       ],
     },
