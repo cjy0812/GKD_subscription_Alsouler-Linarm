@@ -881,5 +881,27 @@ export default defineGkdApp({
         },
       ],
     },
+    {
+      key: 45,
+      name: '功能类-文件自动预览',
+      desc: '未下载文件-点击预览',
+      fastQuery: true,
+      actionMaximum: 1,
+      rules: [
+        {
+          activityIds: '.ui.container.MMCommonActivity',
+          matches:
+            '[text^="14天内可以预览"] - [text="下载"] - [text="预览"][clickable=true][visibleToUser=true]',
+          snapshotUrls: [
+            'https://i.gkd.li/i/25832752', // 点击预览
+            'https://i.gkd.li/i/25832868', // 点击后的预览窗口
+          ],
+          exampleUrls: [
+            'https://e.gkd.li/51a4f07b-ca93-46f4-b301-9ed197862d96',
+            'https://e.gkd.li/c4e42c3b-a071-427b-9a4c-a1035421836c',
+          ],
+        },
+      ],
+    },
   ],
 });
