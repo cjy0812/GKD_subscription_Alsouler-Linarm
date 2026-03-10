@@ -76,11 +76,10 @@ export default defineGkdApp({
       rules: [
         {
           activityIds: 'dev.xesam.chelaile.app.module.PanelHostActivity',
-          matches:
-            '[id="com.ygkj.chelaile.standard:id/cll_interstitial_close"][clickable=true]',
+          matches: '[vid="cll_interstitial_close"][clickable=true]',
           exampleUrls:
             'https://m.gkd.li/57941037/31613a9d-202a-4359-bc99-274dddb180ce',
-          snapshotUrls: 'https://i.gkd.li/i/14325666',
+          snapshotUrls: 'https://i.gkd.li/i/14325666', //旧快照
         },
       ],
     },
@@ -132,8 +131,8 @@ export default defineGkdApp({
     },
     {
       key: 4,
-      name: '功能类-打开app自动点击收藏列表第一个车🚗(不要同时开启哦~)',
-      desc: '启动app-收藏列表第一个车线-进入车线详情',
+      name: '功能类-自动选第1个车🚗',
+      desc: '(⚠️规则2开1)启动app-收藏列表第一个车线-进入车线详情',
       fastQuery: true,
       actionMaximum: 1,
       resetMatch: 'app',
@@ -148,8 +147,8 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '功能类-打开app自动点击第一个车🚗后打开地图🗺️(不要同时开启哦~)',
-      desc: '启动app-收藏列表第一个车线-进入车线详情-点击地图查看所有车次位置',
+      name: '功能类-自动选第1个车🚗后打开地图🗺️',
+      desc: '(⚠️规则2开1) ①选收藏列表第1个车线 ②打开地图查看车次位置',
       fastQuery: true,
       actionMaximum: 1,
       resetMatch: 'app',
