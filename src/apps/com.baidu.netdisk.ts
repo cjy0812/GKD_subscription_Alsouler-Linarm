@@ -72,8 +72,11 @@ export default defineGkdApp({
       rules: [
         {
           activityIds: '.ui.MainActivity',
-          matches: 'ImageView[id="com.baidu.netdisk:id/dialog_cancel"]', //单独使用ID会导致误触（例如删除确认https://i.gkd.li/i/13069049）
-          snapshotUrls: 'https://i.gkd.li/i/12923936',
+          matches: [
+            '[text="开启推送提醒"]',
+            '[text="暂不开启"][clickable=true]',
+          ],
+          snapshotUrls: 'https://i.gkd.li/i/25904597',
         },
       ],
     },
