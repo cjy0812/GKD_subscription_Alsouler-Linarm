@@ -162,7 +162,7 @@ export default defineGkdApp({
         },
         {
           preKeys: [0],
-          key: 1,
+          priorityTime: 6000,
           activityIds:
             'dev.xesam.chelaile.app.module.line.gray.LineDetailActivity',
           matches: '[vid="cll_cover"][visibleToUser=true][clickable=true]',
