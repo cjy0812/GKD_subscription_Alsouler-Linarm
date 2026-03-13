@@ -11,13 +11,13 @@
 
 在快照中，有一部分节点可以直接通过 `id` / `vid` / `name` 定位，不需要遍历就能获取。这部分节点在树形图中是加粗显示的。
 
-![可以快速查询的节点在树形图中加粗显示](images/fast-queryable-bold-style.png)
+![可以快速查询的节点在树形图中加粗显示](images/fast-query/fast-queryable-bold-style.png)
 
 选中这些节点，查看属性面板，可以快速查询的属性在名称右侧有一个勾。
 
-![id和vid属性可以快速查询的示例](images/attribute-id-vid-fast-queryable.png)
+![id和vid属性可以快速查询的示例](images/fast-query/attribute-id-vid-fast-queryable.png)
 
-![text属性可以快速查询的示例](images/attribute-text-fast-queryable.png)
+![text属性可以快速查询的示例](images/fast-query/attribute-text-fast-queryable.png)
 
 由于选择器是从右往左查询的，所以满足快速查询的选择器 **末尾属性选择器** 的 **第一个属性选择表达式** 应该符合下面的结构之一：[^2]
 
@@ -60,7 +60,7 @@ A > B + C[childCount=2][id='x' || text='manbaout' || text*='ikun'] ❎
 
 我们需要点击的节点如图所示：
 
-![需要点击的节点](images/fast-query-example-target-node.png)
+![需要点击的节点](images/fast-query/fast-query-example-target-node.png)
 
 在学习快速查询之前，我们可能会写出这样的选择器：
 
@@ -70,7 +70,7 @@ A > B + C[childCount=2][id='x' || text='manbaout' || text*='ikun'] ❎
 
 注意到该节点附近有一个可以快速查询的节点，如图所示：
 
-![中转节点](images/fast-query-example-transit-node.png)
+![中转节点](images/fast-query/fast-query-example-transit-node.png)
 
 可以先获取 `[vid="browser_fragment_layout"]` 节点，然后查找目标节点。
 
@@ -84,7 +84,7 @@ A > B + C[childCount=2][id='x' || text='manbaout' || text*='ikun'] ❎
 > 
 > 点击属性面板中的 **快速复制规则按钮**，即可复制最近的可以快速查询的节点或者根节点到当前节点的表达式
 > 
-> ![快速复制规则按钮](images/fast-copy-button.png)
+> ![快速复制规则按钮](images/fast-query/fast-copy-button.png)
 
 ### 局部快速查询
 
