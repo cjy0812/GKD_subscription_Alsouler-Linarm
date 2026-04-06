@@ -11,12 +11,13 @@ export default defineGkdApp({
       fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
-      resetMatch: 'app',
+      resetMatch: 'apps',
       rules: [
         {
           activityIds: '.page.activity.MainActivity',
-          matches: ['[text="通知服务未开启"]', '[text="取消"]'],
-          snapshotUrls: 'https://i.gkd.li/i/114514',
+            matches: ['text="通知服务未开启"]', '[text="取消"]'],
+      
+            snapshotUrls: 'https://i.gkd.li/i/114514',
         },
       ],
     },
