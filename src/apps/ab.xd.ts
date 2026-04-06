@@ -15,8 +15,7 @@ export default defineGkdApp({
       rules: [
         {
           activityIds: '.page.activity.MainActivity',
-            matches: ['text="通知服务未开启"]', '[text="取消"]'],
-      
+            matches: '[text="通知服务未开启"]',
             snapshotUrls: 'https://i.gkd.li/i/114514',
         },
       ],
